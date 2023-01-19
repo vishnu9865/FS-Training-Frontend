@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+	<meta charset="utf-8">
+	<title>KanbanPro</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO -->
+  <meta name="description" content="KanbanPro is a simple yet effective Kanban Board based Project Manager that you can organize any number of tasks with your team mates or for your own person use.">
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon/site.webmanifest">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- custom bootstrap theme -->
+  <link rel="stylesheet" href="custom/cbootstrap.css">
+  <!-- consolas like inconsolata font from google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- custom css overrides -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- header containing navbar  -->
+  <header class="sticky-top bg-body-tertiary shadow-sm">
+    <!-- navigation bar -->
+    <nav class="container-xxl navbar navbar-expand-lg" data-bs-theme="light">
+      <div class="container-fluid">
+        <!-- kanbanpro brandname with icon  -->
+        <a class="navbar-brand text-primary" href="dashboard.html"><img src="images/kanbanpro.svg" height="16" class="mx-1 mb-1" alt=""><i>KanbanPro</i></a>
+        <!-- project name display  -->
+        <div class="ms-0 me-auto d-none d-sm-inline">
+          <a class="nav-link text-secondary rounded-3 border text-nowrap py-2 px-3"><i class="bi bi-box text-primary me-2"></i>MyProject <i class="bi bi-chevron-right"></i> <i class="bi bi-kanban text-primary me-2"></i>Agile Board</a>
+        </div>
+        <!-- toggle button -->
+        <button class="btn btn-outline-primary navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <!-- navbar items -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ms-auto mb-lg-0 mb-2">
+            <!-- team dropdown menu  -->
+            <li class="nav-item">
+              <div class="dropdown">
+                <a class="nav-link align-middle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-people-fill text-primary"></i> Team
+                </a>
+                <!-- dropdown menu  -->
+                <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end bg-body-tertiary shadow-sm">
+                  <li>
+                    <div class="d-flex mt-2 mb-3 mx-3">
+                      <a href="addMember.html" type="button" class="btn btn-primary flex-fill border me-1">
+                        <span class="text-nowrap"><i class="bi bi-person-add"></i> Add</span>
+                      </a>
+                      <a href="editMember.html" type="button" class="btn btn-primary flex-fill border ms-1">
+                        <span class="text-nowrap"><em class="bi bi-pencil-square"></em> Edit</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li><hr class="mt-0 mb-1"></li>
+                  <li><h6 class="dropdown-header" href="#">Team</h6></li>
+                  <li>
+                    <div class="dropdown-item">
+                      <span>Jeyavishnu S</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="dropdown-item">
+                      <span>Bhuvanesh</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="dropdown-item">
+                      <span>Manoj Kumar</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!-- project dropdown menu  -->
+            <li class="nav-item">
+              <div class="dropdown">
+                <a class="nav-link align-middle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-box-fill text-primary"></i> Project
+                </a>
+                <!-- dropdown menu  -->
+                <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end  bg-body-tertiary shadow-sm">
+                  <li>
+                    <div class="d-flex mt-2 mb-3 mx-3">
+                      <a href="addProject.html" type="button" class="btn btn-primary flex-fill border me-1">
+                        <i class="bi bi-plus"></i> Add
+                      </a>
+                      <a href="editProject.html" type="button" class="btn btn-primary flex-fill border ms-1">
+                        <i class="bi bi-pencil-square"></i> Edit
+                      </a>
+                    </div>
+                  </li>
+                  <li><hr class="mt-0 mb-1"></li>
+                  <li><h6 class="dropdown-header" href="#">Current Project</h6></li>
+                  <li><a class="dropdown-item" href="dashboard.html">MyProject</a></li>
+                  <li><h6 class="dropdown-header" href="#">Other Projects</h6></li>
+                  <li><a class="dropdown-item" href="#">Online Resource Tracker</a></li>
+                  <li><a class="dropdown-item" href="#">Production Tool #12A1</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- notification dropdown menu -->
+            <!-- <li class="nav-item mx-2">
+              <div class="dropdown">
+                <a class="nav-link px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-bell-fill me-0 text-primary"></i> 10
+                </a> -->
+                <!-- dropdown menu  -->
+                <!-- <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end bg-body-tertiary shadow-sm">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </li> -->
+            <!-- dropdown menu -->
+            <li class="nav-item">
+              <div class="dropdown">
+                <a class="nav-link p-0 m-auto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <!-- user name  -->
+                  <span class="align-middle ms-2 me-1">
+                    <i class="bi bi-caret-down-fill text-primary"></i>
+                    <span class="d-lg-none d-xl-inline">vishnu9865</span>
+                  </span>
+                  <!-- user profile picture  -->
+                  <!-- <img class="rounded-circle shadow border border-primary" height="35" src="https://via.placeholder.com/35x35" alt="user"> -->
+                  <img class="img rounded-circle shadow-sm border border-primary" height="39" src="images/Linkedin-Profile-Pic.jpeg" alt="user">
+                </a>
+                <!-- user menu  -->
+                <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end bg-body-tertiary shadow-sm">
+                  <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person text-primary me-2"></i> Profile</a></li>
+                  <!-- <li><a class="dropdown-item" href="#"><i class="bi bi-gear text-primary me-2"></i> Settings</a></li>  -->
+                  <li><a class="dropdown-item" href="login.html"><i class="bi bi-escape text-primary me-2"></i> Logout</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="images/kanbanpro.svg" height="16" class="mb-1 me-2" alt=""> About</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-xxl pt-3">
+    <!-- row containing boards drop down and other options for kanban board  -->
+    <div class="container d-flex flex-wrap mb-3 px-0 w-100">
+      <div class="dropdown">
+        <button class="btn bg-body-tertiary text-muted me-3 shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="text-nowrap"><i class="bi bi-kanban me-1 text-primary"></i>Boards</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-start bg-body-tertiary shadow-sm">
+          <li>
+            <div class="d-flex mt-2 mb-3 mx-3">
+              <a href="addBoard.html" type="button" class="btn btn-primary flex-fill border me-1">
+                <span class="text-nowrap"><i class="bi bi-person-add"></i> Add</span>
+              </a>
+              <a href="editBoard.html" type="button" class="btn btn-primary flex-fill border ms-1">
+                <span class="text-nowrap"><em class="bi bi-pencil-square"></em> Edit</span>
+              </a>
+            </div>
+          </li>
+          <li><hr class="mt-0 mb-1"></li>
+          <li><a class="dropdown-item" href="#">Agile Board</a></li>
+          <li><a class="dropdown-item" href="#">Meetings</a></li>
+          <li><a class="dropdown-item" href="#">Maintenance</a></li>
+        </ul>
+      </div>
+      <a href="addList.html" class="btn bg-body-tertiary ms-auto text-muted shadow-sm me-3"  type="button">
+        <i class="bi bi-file-plus text-primary"> </i>List
+      </a>
+      <div class="dropdown dropdown-menu-end me-0">
+        <button class="btn bg-body-tertiary text-muted shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="text-nowrap"><i class="bi bi-funnel text-primary"></i> Filter</span>
+        </button>
+        <ul class="dropdown-menu  bg-body-tertiary shadow-sm">
+          <li><a class="dropdown-item text-secondary" href="#"><i class="bi bi-sort-alpha-down text-primary"> </i>By Alphabets</a></li>
+          <li><a class="dropdown-item text-secondary" href="#"><i class="bi bi-sort-numeric-down text-primary"> </i>By Modified Time</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Main Kanban Board Content  -->
+    <div class="container">
+      <div class="row">
+        <div class="col border rounded">
+          <!-- secondary container for all the lists to be in a row  -->
+          <div class="container">
+            <div class="row flex-nowrap overflow-auto" dragscrollenabled="true">
+              <!-- individual list component -->
+              <div class="col-3 card border rounded p-0 my-3 shadow-sm me-3" draggable="true" style="width: 300px;">
+                <div class="card-body">
+                  <!-- row containing list title and list description  -->
+                  <div class="d-flex w-100">
+                    <div class="flex-start">
+                      <h6 class="card-title mb-0">In-Progress</h6>
+                      <small class="card-subtitle text-muted text-wrap text-break overflow-auto">Task Currently being worked on</small>
+                    </div>
+                    <div class="ms-auto flex-end">
+                      <!-- <div class="dropdown">
+                        <button class="btn rounded shadow-sm bg-body-tertiary text-muted" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="bi bi-three-dots"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                        </ul>
+                      </div> -->
+                      <button class="btn rounded shadow-sm bg-body-tertiary text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="bi bi-three-dots"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse w-100" id="collapseExample1">
+                    <!-- collapsible menu for editing and deleting the list  -->
+                    <div class="card card-body border-0 pt-2 pb-1 px-0">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col m-0 ps-0">
+                            <a href="editList.html" class="btn bg-body-tertiary rounded shadow-sm w-100 text-muted">Edit</a >
+                          </div>
+                          <div class="col m-0 pe-0">
+                            <button class="btn bg-body-tertiary rounded shadow-sm w-100 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                            </button>
+                            <!-- Delete Modal -->
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Task</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete this task ?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-warning text-muted m-0 py-1 px-2">
+                        Remarketing
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        Build Android App New Landing Page
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <div>
+                      <small>
+                        Analystics
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-warning text-muted m-0 py-1 px-2">
+                        Remarketing
+                      </span>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-info text-muted m-0 py-1 px-2">
+                        Partners
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        Branding Guidelines
+                      </small>
+                    </div>
+                  </a>
+                  <!-- add task button  -->
+                  <a href="addTask.html" class="btn rounded bg-body-tertiary text-muted shadow-sm mt-3 w-100">
+                    <small>
+                      <i class="bi bi-plus-square"></i> Add Task
+                    </small>
+                  </a>
+                </div>
+              </div>
+              <!-- individual list component -->
+              <div class="col-3 card border rounded p-0 my-3 shadow-sm me-3" draggable="true" style="width: 300px;">
+                <div class="card-body">
+                  <!-- row containing list title and list description  -->
+                  <div class="d-flex w-100">
+                    <div class="flex-start">
+                      <h6 class="card-title mb-0">On Hold</h6>
+                      <small class="card-subtitle text-muted text-wrap text-break overflow-auto">Task on Hold</small>
+                    </div>
+                    <div class="ms-auto flex-end">
+                      <button class="btn rounded shadow-sm bg-body-tertiary text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="bi bi-three-dots"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse w-100" id="collapseExample2">
+                    <!-- collapsible menu for editing and deleting the list  -->
+                    <div class="card card-body border-0 pt-2 pb-1 px-0">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col m-0 ps-0">
+                            <a href="editList.html" class="btn bg-body-tertiary rounded shadow-sm w-100 text-muted">Edit</a >
+                          </div>
+                          <div class="col m-0 pe-0">
+                            <button class="btn bg-body-tertiary rounded shadow-sm w-100 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                            </button>
+                            <!-- Delete Modal -->
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Task</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete this task ?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-info text-muted m-0 py-1 px-2">
+                        Partners
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        CSS Rules
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-success  m-0 py-1 px-2">
+                        Planning
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        Retail Order regarding Clients <br>(Reg: May need a Meeting)
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        Mobile UI Reboot
+                      </small>
+                    </div>
+                  </a>
+                  <!-- add task button  -->
+                  <a href="addTask.html" class="btn rounded bg-body-tertiary text-muted shadow-sm mt-3 w-100">
+                    <small>
+                      <i class="bi bi-plus-square"></i> Add Task
+                    </small>
+                  </a>
+                </div>
+              </div>
+              <!-- individual list component -->
+              <div class="col-3 card border rounded p-0 my-3 shadow-sm me-3" draggable="true" style="width: 300px;">
+                <div class="card-body">
+                  <!-- row containing list title and list description  -->
+                  <div class="d-flex w-100">
+                    <div class="flex-start">
+                      <h6 class="card-title mb-0">Done</h6>
+                      <small class="card-subtitle text-muted text-wrap text-break overflow-auto">Completed Tasks</small>
+                    </div>
+                    <div class="ms-auto flex-end">
+                      <button class="btn rounded shadow-sm bg-body-tertiary text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="bi bi-three-dots"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse w-100" id="collapseExample3">
+                    <!-- collapsible menu for editing and deleting the list  -->
+                    <div class="card card-body border-0 pt-2 pb-1 px-0">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col m-0 ps-0">
+                            <a href="editList.html" class="btn bg-body-tertiary rounded shadow-sm w-100 text-muted">Edit</a >
+                          </div>
+                          <div class="col m-0 pe-0">
+                            <button class="btn bg-body-tertiary rounded shadow-sm w-100 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                            </button>
+                            <!-- Delete Modal -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-secondary m-0 py-1 px-2">
+                        Demand Marketing
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        Review Tech Partner Pages
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        Make sure sponsors are indicated for Tech Talk
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span class="badge rounded-pill text-bg-success m-0 py-1 px-2">
+                        Planning
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        Top 10 Trends List - Forbes
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        TBC Webinar: Ship Now, Not Later
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                      <!-- individual label component  -->
+                      <span style="background-color: palevioletred;" class="badge rounded-pill m-0 py-1 px-2">
+                        Happiness
+                      </span>
+                    </div>
+                    <div>
+                      <small>
+                        1:1 Nancy
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        Lead Gen Mandrill stats
+                      </small>
+                    </div>
+                  </a>
+                  <!-- add task button  -->
+                  <a href="addTask.html" class="btn rounded bg-body-tertiary text-muted shadow-sm mt-3 w-100">
+                    <small>
+                      <i class="bi bi-plus-square"></i> Add Task
+                    </small>
+                  </a>
+                </div>
+              </div>
+              <!-- individual list component -->
+              <div class="col-3 card border rounded p-0 my-3 shadow-sm me-3" draggable="true" style="width: 300px;">
+                <div class="card-body">
+                  <!-- row containing list title and list description  -->
+                  <div class="d-flex w-100">
+                    <div class="flex-start">
+                      <h6 class="card-title mb-0">Questions</h6>
+                      <small class="card-subtitle text-muted text-wrap text-break overflow-auto">Group Questions</small>
+                    </div>
+                    <div class="ms-auto flex-end">
+                      <button class="btn rounded shadow-sm bg-body-tertiary text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="bi bi-three-dots"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse w-100" id="collapseExample4">
+                    <!-- collapsible menu for editing and deleting the list  -->
+                    <div class="card card-body border-0 pt-2 pb-1 px-0">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col m-0 ps-0">
+                            <a href="editList.html" class="btn bg-body-tertiary rounded shadow-sm w-100 text-muted">Edit</a >
+                          </div>
+                          <div class="col m-0 pe-0">
+                            <button class="btn bg-body-tertiary rounded shadow-sm w-100 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                            </button>
+                            <!-- Delete Modal -->
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Task</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete this task ?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        How do you adjust canvas size on Illustrator?
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        Does Screenhero have a trial period?
+                      </small>
+                    </div>
+                  </a>
+                  <!-- individual task component  -->
+                  <a href="viewTask.html" class="btn rounded bg-body-tertiary shadow-sm mt-3 w-100 text-start text-muted" draggable="true">
+                    <!-- labels  -->
+                    <div>
+                    </div>
+                    <div>
+                      <small>
+                        When does the new subway fare hike increase - before or after remote week?
+                      </small>
+                    </div>
+                  </a>
+                  <!-- add task button  -->
+                  <a href="addTask.html" class="btn rounded bg-body-tertiary text-muted shadow-sm mt-3 w-100">
+                    <small>
+                      <i class="bi bi-plus-square"></i> Add Task
+                    </small>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- delete modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this task ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
