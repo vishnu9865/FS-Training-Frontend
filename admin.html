@@ -149,80 +149,90 @@
     </nav>
   </header>
 
-  <main class="container-xxl pt-3 mt-5">
+  <main class="container-xxl pt-3 mt-2">
     <div class="row">
-      <div class="col-auto mx-auto">
-        <table class="table">
+      <div class="col mx-auto overflow-auto">
+        <div class="d-flex">
+          <!-- Individual info component  -->
+          <div class="card mb-3 me-3 shadow-sm">
+            <div class="card-body">
+              <div class="card-title">Total Tasks:</div>
+              <div>
+                <h1 class="m-0">19</h1>
+              </div>
+            </div>
+          </div>
+          <!-- Individual info component  -->
+          <div class="card mb-3 me-3 shadow-sm">
+            <div class="card-body">
+              <div class="card-title">Total Completed:</div>
+              <div>
+                <h1 class="m-0">7</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mx-auto overflow-auto">
+        <table class="table shadow-sm border">
           <thead>
-            <tr>
+            <tr class="bg-body-tertiary">
               <th scope="col">#</th>
               <th scope="col">Full Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Email ID</th>
-              <th scope="col">Role</th>
-              <th scope="col">Action</th>
+              <th scope="col">Task <br>Completed</th>
+              <th scope="col">Task <br>Assigned</th>
+              <th scope="col">Evaluation</th>
+              <th scope="col">Github Link</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Jeyavishnu S</td>
-              <td>vishnu9865</td>
-              <td>sjeyavishnu9865@gmail.com</td>
-              <!-- select input for selecting role  -->
-              <td>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Owner</option>
-                  <option value="1">Owner</option>
-                  <option value="2">Admin</option>
-                  <option value="3">Member</option>
-                </select>
-              </td>
-              <td>
-                <button class="btn btn-outline-danger disabled"><i class="bi bi-person-dash"> </i>Remove</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
+              <td>1</td>
               <td>Bhuvanesh</td>
-              <td>bhuvanesh12</td>
-              <td>bhuvanesh12@gmail.com</td>
-              <!-- select input for selecting role  -->
+              <td>3</td>
+              <td>12</td>
               <td>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Admin</option>
-                  <option value="1">Owner</option>
-                  <option value="2">Admin</option>
-                  <option value="3">Member</option>
-                </select>
+                <input 
+                  type="text" 
+                  name="marks" 
+                  id="marks" 
+                  class="form-control"
+                  placeholder="set marks" 
+                />
               </td>
               <td>
-                <button class="btn btn-outline-danger"><i class="bi bi-person-dash"> </i>Remove</button>
+                <div class="badge bg-info">
+                  <a href="#" class="text-decoration-none">Link <i class="bi bi-arrow-right"></i></a>
+                </div>
               </td>
             </tr>
             <tr>
-              <th scope="row">3</th>
+              <td>2</td>
               <td>Manoj Kumar</td>
-              <td>manoj_123</td>
-              <td>manoj_123@gmail.com</td>
-              <!-- select input for selecting role  -->
+              <td>4</td>
+              <td>7</td>
               <td>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Member</option>
-                  <option value="1">Owner</option>
-                  <option value="2">Admin</option>
-                  <option value="3">Member</option>
-                </select>
+                <input 
+                  type="text" 
+                  name="marks" 
+                  id="marks" 
+                  class="form-control"
+                  placeholder="set marks" 
+                />
               </td>
               <td>
-                <button class="btn btn-outline-danger"><i class="bi bi-person-dash"> </i>Remove</button>
+                <div class="badge bg-info">
+                  <a href="#" class="text-decoration-none">Link <i class="bi bi-arrow-right"></i></a>
+                </div>
               </td>
             </tr>
           </tbody>
         </table>
         <div class="d-flex flex-wrap mt-3">
-          <button class="btn bg-body-tertiary shadow-sm ms-auto me-2">Cancel</button>
-          <button class="btn btn-primary shadow me-0"><i class="bi bi-save"> </i>Save Changes</button>
+          <button class="btn bg-body-tertiary shadow-sm mb-5 ms-auto me-2">Cancel</button>
+          <button class="btn btn-primary shadow mb-5 me-0"><i class="bi bi-save"> </i>Save Changes</button>
         </div>
       </div>
     </div>
